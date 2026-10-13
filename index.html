@@ -381,7 +381,7 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
       for(var k=0;k<SLIDES;k++){
         var sd=el('div','qb-slide'),im=new Image();im.decoding='async';im.alt='';if(k)im.loading='lazy';
         im.onerror=function(){this.style.visibility='hidden'};im.src=p.image;sd.appendChild(im);
-        sd.appendChild(el('span','qb-big',k+1));sl.appendChild(sd);pg.appendChild(el('i',k?'':'on'));
+        if(k)sd.appendChild(el('span','qb-big',k+1)); /* 1번(대표 사진)은 숫자 없이 */sl.appendChild(sd);pg.appendChild(el('i',k?'':'on'));
       }
       sl.addEventListener('scroll',function(){
         var n=Math.round(sl.scrollLeft/Math.max(1,sl.clientWidth));
