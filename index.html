@@ -483,22 +483,42 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
       x.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();wish=wish.filter(function(v){return v.id!==w.id});saveWish();renderWish()});
       m.appendChild(x);box.appendChild(m);
     });
-    $('wish-n').textContent=wish.length;
+    updateGo();
+    if(wishMode&&!wish.length){exitWish();}
     $('wish').hidden=!wish.length;
     root.style.setProperty('--qb-wish-h',wish.length?$('wish').offsetHeight+'px':'0px');
     root.querySelectorAll('.qb-heart').forEach(function(h){h.setAttribute('aria-pressed',String(isWished(+h.getAttribute('data-id'))||isWished(h.getAttribute('data-id'))))});
-    if(wishMode)showWish(true);
+    if(wishMode&&wish.length)showWish(true);
+  }
+  function updateGo(){
+    var b=$('wish-go');
+    if(wishMode){b.textContent='';b.appendChild(document.createTextNode('← 돌아가기'));b.setAttribute('aria-label','찜 모아보기 끝내고 보던 곳으로 돌아가기')}
+    else{b.innerHTML='찜 <span>'+wish.length+'</span><br>모아보기';b.setAttribute('aria-label','찜한 상품 '+wish.length+'개 모아보기')}
+  }
+  /* 모아보기 들어가기 직전 상태(보던 목록·제목·스크롤 위치)를 기억했다가 그대로 돌려놓습니다 */
+  var saved=null;
+  function exitWish(){
+    if(!wishMode)return;wishMode=false;
+    var st=saved;saved=null;
+    if(st&&st.items){
+      items=st.items;$('title').textContent=st.title;$('note').textContent=st.note;$('back').textContent='취향 바꾸기 ↑';summary();
+      $('res').hidden=st.resHidden;layout();
+    }else{$('res').hidden=true}
+    updateGo();
+    window.scrollTo(0,st?st.y:0);if(!$('res').hidden)draw();
   }
   function showWish(quiet){
-    wishMode=true;
+    if(!wishMode)saved={items:items,title:$('title').textContent,note:$('note').textContent,y:window.pageYOffset,resHidden:$('res').hidden||lastN<0};
+    wishMode=true;updateGo();
     var map={};all.forEach(function(p){map[p.id]=p});
     items=wish.map(function(w){return map[w.id]}).filter(Boolean);
     $('title').textContent='찜한 상품 '+items.length+'개';
-    $('back').textContent=lastN>=0?'추천으로 돌아가기':'취향 바꾸기 ↑';
+    $('back').textContent='← 돌아가기';
     $('sum').textContent='';$('note').textContent='하트를 다시 누르거나 아래 배너의 ×를 누르면 찜에서 빠집니다.';
     $('res').hidden=false;if(!quiet)window.scrollTo(0,resTop());layout();
   }
   $('wish-go').addEventListener('click',function(){
+    if(wishMode){exitWish();return}
     if(all.length){showWish();return}
     loadProducts(function(rows,smp){all=rows;isSample=smp;showWish()},function(){});
   });
@@ -512,7 +532,7 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
         function(){b.textContent='상품을 못 불러왔습니다. 다시 눌러 주세요'});
     });
   });
-  $('back').addEventListener('click',function(){if(wishMode&&lastN>=0){show(lastN)}else{toTop()}});
+  $('back').addEventListener('click',function(){if(wishMode){exitWish()}else{toTop()}});
   $('size').addEventListener('change',layout);
   $('top').addEventListener('click',toTop);
   window.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(draw)},{passive:true});
