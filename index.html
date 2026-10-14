@@ -48,15 +48,18 @@ body{margin:0;background:#fff}
 #qb .qb-row > h2{margin:0;background:var(--qb-label);font-size:14px;font-weight:700;padding:14px 16px;display:flex;flex-direction:column;justify-content:center;gap:2px}
 #qb .qb-row > h2 small{font-weight:400;font-size:11px;color:var(--qb-muted)}
 #qb .qb-opts-row{padding:9px 14px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;min-width:0}
-#qb .qb-chip{border:1px solid transparent;background:none;font-size:14px;font-weight:500;padding:6px 10px;border-radius:999px;letter-spacing:-.02em}
+#qb .qb-chip{border:1px solid transparent;background:none;font-size:16px;font-weight:500;padding:6px 10px;border-radius:999px;letter-spacing:-.02em;text-align:center}
 #qb .qb-chip:hover{border-color:var(--qb-line)}
 #qb .qb-chip[aria-pressed="true"]{background:var(--qb-pink);border-color:var(--qb-brand);color:var(--qb-ink);font-weight:700}
 #qb .qb-chip[aria-pressed="true"]::before{content:"✓ ";color:var(--qb-brand)}
-#qb .qb-chip.has-d{display:inline-flex;flex-direction:column;align-items:flex-start;text-align:left;border-radius:8px;padding:6px 10px 7px}
+#qb .qb-chip.has-d{display:inline-flex;flex-direction:column;align-items:center;text-align:center;border-radius:8px;padding:6px 10px 7px}
 #qb .qb-chip.has-d b{font-weight:inherit}
 #qb .qb-chip.has-d small{font-size:10.5px;font-weight:400;color:var(--qb-muted);line-height:1.3;margin-top:1px;letter-spacing:-.03em;white-space:nowrap}
 #qb .qb-br{flex-basis:100%;height:0}
-#qb .qb-ico{width:15px;height:15px;vertical-align:-3px;margin-right:4px;fill:none;stroke:currentColor;stroke-width:1.25;stroke-linejoin:round;stroke-linecap:round}
+#qb .qb-ico{width:22px;height:22px;display:block;margin:0 auto 3px;fill:none;stroke:currentColor;stroke-width:1.15;stroke-linejoin:round;stroke-linecap:round}
+#qb .qb-chip.has-i{display:inline-flex;flex-direction:column;align-items:center;border-radius:8px;padding:7px 6px 6px;min-width:52px}
+#qb .qb-chip.has-i[aria-pressed="true"]::before{content:none}
+#qb .qb-chip.has-i[aria-pressed="true"] .qb-ico{stroke:var(--qb-brand)}
 #qb .qb-chip.has-d[aria-pressed="true"]::before{content:none}
 #qb .qb-chip.has-d[aria-pressed="true"] b::before{content:"✓ ";color:var(--qb-brand)}
 #qb .qb-chip.has-d[aria-pressed="true"] small{color:#6b4a55}
@@ -77,6 +80,7 @@ body{margin:0;background:#fff}
 /* ── 버튼 줄 ── */
 #qb .qb-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:12px}
 #qb .qb-cta-top{margin-top:30px}
+#qb .qb-cta-top + .qb-cta{margin-top:44px}
 #qb .qb-cta-top .qb-reset{padding:12px 26px;font-size:14px}
 #qb .qb-hint b{font-weight:500;color:var(--qb-ink)}
 #qb .qb-cta button{border:0;font-size:15px;font-weight:700;padding:15px 26px;border-radius:2px;white-space:nowrap}
@@ -153,7 +157,8 @@ body{margin:0;background:#fff}
   #qb .qb-br{display:none}
   #qb .qb-row > h2{flex-direction:row;align-items:baseline;gap:6px;padding:9px 12px;font-size:13.5px}
   #qb .qb-opts-row{padding:8px 8px 10px}
-  #qb .qb-chip{font-size:13.5px;padding:6px 9px}
+  #qb .qb-chip{font-size:15.5px;padding:6px 9px}
+  #qb .qb-chip.has-i{min-width:52px;padding:6px 6px}
   #qb .qb-range{margin:4px 0 0}
   #qb .qb-range input{width:96px}
   #qb .qb-cta button{flex:1 1 30%;padding:14px 6px;font-size:13.5px}
@@ -167,7 +172,7 @@ body{margin:0;background:#fff}
     <div class="qb-head">
       <p class="qb-eyebrow">PINKROCKET · QUICK BROWSE</p>
       <h1>당신의 취향을 알려주세요</h1>
-      <p><span class="qb-pill">고른 만큼 더 잘 맞는 상품부터 보여드립니다</span></p>
+      <p><span class="qb-pill">더 쉽고 빠르게 보여드릴게요</span></p>
     </div>
 
     <div class="qb-table">
@@ -336,7 +341,7 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
     MENU[key].forEach(function(v,idx){
       var name=key==='price'?v[0]:v,d=(DESC[key]||{})[name],b=el('button','qb-chip'+(d?' has-d':''));
       if(d){b.appendChild(el('b','',name));b.appendChild(el('small','',d))}
-      else if(key==='motif'&&ICON[name]){b.innerHTML='<svg class="qb-ico" viewBox="0 0 16 16" aria-hidden="true">'+ICON[name]+'</svg>';b.appendChild(document.createTextNode(name))}
+      else if(key==='motif'&&ICON[name]){b.className+=' has-i';b.innerHTML='<svg class="qb-ico" viewBox="0 0 16 16" aria-hidden="true">'+ICON[name]+'</svg>';b.appendChild(document.createTextNode(name))}
       else b.textContent=name;
       if(BREAK[key]===name)box.insertBefore(el('span','qb-br'),first);
       b.type='button';b.setAttribute('aria-pressed','false');
