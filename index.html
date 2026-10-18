@@ -148,6 +148,62 @@ body{margin:0;background:#fff}
 #qb .qb-wish-go{flex:none;border:0;border-radius:2px;background:var(--qb-ink);color:#fff!important;font-weight:700;font-size:13px;padding:10px 12px;line-height:1.25;text-align:center}
 #qb .qb-wish-go span{color:var(--qb-pink)}
 
+/* ── 리뷰어 어워드 연결 버튼 ── */
+#qb .qb-cta-sub{display:flex;justify-content:center;margin-top:18px}
+#qb .qb-award-link{border:1px dashed var(--qb-muted);background:#fff;color:var(--qb-muted);font-size:13px;font-weight:500;padding:9px 16px;border-radius:999px}
+#qb .qb-award-link:hover{color:var(--qb-ink);border-color:var(--qb-ink)}
+
+/* ── 별도 페이지(리뷰 모아보기 · 리뷰어 어워드) ── */
+#qb .qb-page{max-width:760px;margin:0 auto;padding:0 16px calc(96px + var(--qb-bottom) + var(--qb-wish-h))}
+#qb .qb-page-head{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--qb-top));z-index:50;background:#fff;margin:0 -16px;padding:12px 16px 10px;border-bottom:1px solid var(--qb-line);display:flex;align-items:center;justify-content:space-between;gap:10px}
+#qb .qb-page-head h1{margin:0;font-size:18px;font-weight:700;letter-spacing:-.03em}
+#qb .qb-page-head h1 small{font-family:var(--qb-en);font-size:11px;font-weight:700;color:var(--qb-brand);letter-spacing:.06em;margin-right:6px}
+#qb .qb-page-intro{text-align:center;padding:26px 0 14px;border-bottom:2px solid var(--qb-ink)}
+#qb .qb-page-intro h2{margin:0;font-size:22px;font-weight:700;letter-spacing:-.04em}
+#qb .qb-page-intro p{margin:8px 0 0;color:var(--qb-muted);font-size:13.5px}
+#qb .qb-demo{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:12px;color:var(--qb-muted);border:1px dashed var(--qb-line);padding:5px 10px;border-radius:999px;cursor:pointer}
+#qb .qb-demo input{margin:0}
+#qb .qb-empty{text-align:center;color:var(--qb-muted);padding:50px 0}
+
+/* 리뷰 모아보기: 상품 블록 */
+#qb .qb-rvi{border-bottom:1px solid var(--qb-line);padding:16px 0 18px}
+#qb .qb-rvi-top{display:grid;grid-template-columns:64px auto 1fr auto;gap:12px;align-items:center}
+#qb .qb-rvi-top img,#qb .qb-rvi-top .ph{width:64px;height:64px;object-fit:cover;background:#f3f3f3;display:block}
+#qb .qb-rvi-price{font-weight:700;font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap}
+#qb .qb-rvi-name{min-width:0}
+#qb .qb-rvi-name a{color:var(--qb-ink);text-decoration:none;font-size:14px;font-weight:500;display:block;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:keep-all}
+#qb .qb-rvi-name small{display:block;font-size:9.8px;color:var(--qb-muted);margin-top:3px;letter-spacing:-.02em}
+#qb .qb-rvi-del{border:1px solid var(--qb-line);background:#fff;color:var(--qb-muted);font-size:12px;font-weight:500;padding:7px 10px;border-radius:999px;white-space:nowrap}
+#qb .qb-rvi-del:hover{border-color:var(--qb-brand);color:var(--qb-brand)}
+#qb .qb-revs{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+#qb .qb-rev{background:#fafafa;border-radius:8px;padding:11px 13px;display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:start}
+#qb .qb-rev-no{font-family:var(--qb-en);font-size:11px;font-weight:700;color:var(--qb-brand);padding-top:2px}
+#qb .qb-rev-stars{color:#f5a623;font-size:12px;letter-spacing:1px;grid-column:2}
+#qb .qb-rev-txt{grid-column:2;font-size:13.5px;line-height:1.5;word-break:keep-all}
+#qb .qb-rev-meta{grid-column:2;font-size:11px;color:var(--qb-muted)}
+#qb .qb-like{grid-column:3;grid-row:1/span 3;align-self:center;border:1px solid var(--qb-line);background:#fff;border-radius:999px;font-size:12px;font-weight:500;padding:7px 11px;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+#qb .qb-like svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+#qb .qb-like[aria-pressed="true"]{background:var(--qb-pink);border-color:var(--qb-brand);color:var(--qb-ink)}
+#qb .qb-like[aria-pressed="true"] svg{fill:var(--qb-brand);stroke:var(--qb-brand)}
+#qb .qb-norev{font-size:13px;color:var(--qb-muted);padding:10px 2px}
+#qb .qb-toast{position:fixed;left:50%;bottom:calc(24px + var(--qb-bottom) + var(--qb-wish-h) + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:80;background:var(--qb-ink);color:#fff;font-size:13px;line-height:1.45;padding:11px 16px;border-radius:8px;max-width:calc(100% - 32px);text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+#qb .qb-toast b{color:var(--qb-pink);font-weight:700}
+
+/* 리뷰어 어워드(목업) */
+#qb .qb-aw-badge{display:inline-block;background:var(--qb-pink);color:var(--qb-ink);font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+#qb .qb-aw-sec{padding:18px 0;border-bottom:1px solid var(--qb-line)}
+#qb .qb-aw-sec h3{margin:0 0 8px;font-size:15px;font-weight:700}
+#qb .qb-aw-sec ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.7;color:#333}
+#qb .qb-aw-table{width:100%;border-collapse:collapse;font-size:13.5px}
+#qb .qb-aw-table th,#qb .qb-aw-table td{padding:9px 6px;border-bottom:1px solid var(--qb-line);text-align:center;font-variant-numeric:tabular-nums}
+#qb .qb-aw-table th{background:var(--qb-label);font-weight:700;font-size:12.5px}
+#qb .qb-aw-table td:nth-child(2){text-align:left;font-weight:500}
+#qb .qb-aw-table .top{color:var(--qb-brand);font-weight:700}
+#qb .qb-aw-note{font-size:12px;color:var(--qb-muted);margin:10px 0 0}
+
+/* 찜 배너 버튼 2개 */
+#qb .qb-wish-rv{flex:none;border:1px solid var(--qb-ink);border-radius:2px;background:#fff;color:var(--qb-ink)!important;font-weight:700;font-size:13px;padding:9px 11px;line-height:1.25;text-align:center}
+
 /* ── 좁은 화면(핸드폰): 표 왼쪽 칸을 위로 ── */
 @media (max-width:640px){
   #qb .qb-pick{padding-top:20px}
@@ -163,6 +219,12 @@ body{margin:0;background:#fff}
   #qb .qb-range input{width:96px}
   #qb .qb-cta button{flex:1 1 30%;padding:14px 6px;font-size:13.5px}
   #qb .qb-cta-top .qb-reset{flex:0 0 auto;padding:11px 22px}
+  #qb .qb-rvi-top{grid-template-columns:56px 1fr auto;grid-template-areas:"img name del" "img price del"}
+  #qb .qb-rvi-top img,#qb .qb-rvi-top .ph{grid-area:img;width:56px;height:56px}
+  #qb .qb-rvi-price{grid-area:price;font-size:14px}
+  #qb .qb-rvi-name{grid-area:name}
+  #qb .qb-rvi-del{grid-area:del;padding:6px 8px;font-size:11.5px}
+  #qb .qb-wish-rv,#qb .qb-wish-go{font-size:12px;padding:8px 8px}
 }
 </style>
 
@@ -188,6 +250,7 @@ body{margin:0;background:#fff}
           <span class="qb-range"><input id="qb-pmin" type="text" inputmode="numeric" placeholder="원" aria-label="최저 가격"><span>~</span><input id="qb-pmax" type="text" inputmode="numeric" placeholder="원" aria-label="최고 가격"></span>
         </div>
       </div>
+      <div class="qb-row"><h2>리뷰</h2><div class="qb-opts-row" data-qb-group="review"></div></div>
       <div class="qb-row"><h2>검색어</h2><div class="qb-opts-row"><input class="qb-kw" id="qb-kw" type="search" placeholder="입력하세요 (예: 하트, 큐빅, 진주)" autocomplete="off"></div></div>
       <div class="qb-row"><h2>사진으로 찾기</h2>
         <div class="qb-opts-row qb-photo">
@@ -211,6 +274,7 @@ body{margin:0;background:#fff}
       <button class="qb-b0" type="button" data-qb-n="0">전체 보기</button>
     </div>
     <p class="qb-live" id="qb-live-hint" hidden>추천을 받은 뒤에는 위에서 선택을 바꾸면 아래 결과가 바로 다시 정렬됩니다.</p>
+    <div class="qb-cta-sub"><button class="qb-award-link" id="qb-award-btn" type="button">🏆 리뷰어 어워드 (미정)</button></div>
   </div>
 
   <div class="qb-res" id="qb-res" hidden>
@@ -237,8 +301,67 @@ body{margin:0;background:#fff}
     <button class="qb-top" id="qb-top" type="button">TOP</button>
   </div>
 
+  <!-- 리뷰 모아보기 페이지 -->
+  <div class="qb-page" id="qb-rv" hidden>
+    <div class="qb-page-head">
+      <h1><small>REVIEW</small>리뷰 몰아보기</h1>
+      <button class="qb-back" id="qb-rv-back" type="button">← 돌아가기</button>
+    </div>
+    <div class="qb-page-intro">
+      <h2>ㅁ 리뷰 몰아보기 ㅁ</h2>
+      <p>고객님들의 소중한 실제 구매 후기입니다 :)</p>
+      <label class="qb-demo"><input type="checkbox" id="qb-login-demo"> (시제품 테스트용) 로그인한 상태로 보기</label>
+    </div>
+    <div id="qb-rv-list"></div>
+  </div>
+
+  <!-- 리뷰어 어워드 (목업 · 추가 개발 예정) -->
+  <div class="qb-page" id="qb-aw" hidden>
+    <div class="qb-page-head">
+      <h1><small>AWARD</small>리뷰어 어워드</h1>
+      <button class="qb-back" id="qb-aw-back" type="button">← 돌아가기</button>
+    </div>
+    <div class="qb-page-intro">
+      <span class="qb-aw-badge">목업 · 추가 개발 예정 (미정)</span>
+      <h2>🏆 PINKROCKET 리뷰어 어워드</h2>
+      <p>정성 가득한 후기를 남겨 주신 고객님을 매달 소개하고 시상합니다.</p>
+    </div>
+    <div class="qb-aw-sec">
+      <h3>이달의 리뷰어 (예시)</h3>
+      <table class="qb-aw-table">
+        <thead><tr><th>순위</th><th>리뷰어</th><th>리뷰 수</th><th>받은 좋아요</th><th>시상</th></tr></thead>
+        <tbody>
+          <tr><td class="top">1</td><td>김*영 님</td><td>27</td><td>184</td><td class="top">골드 · 5만원 쿠폰</td></tr>
+          <tr><td class="top">2</td><td>이*진 님</td><td>19</td><td>132</td><td>실버 · 3만원 쿠폰</td></tr>
+          <tr><td class="top">3</td><td>박*우 님</td><td>15</td><td>97</td><td>브론즈 · 1만원 쿠폰</td></tr>
+          <tr><td>4</td><td>최*린 님</td><td>12</td><td>61</td><td>-</td></tr>
+          <tr><td>5</td><td>정*아 님</td><td>11</td><td>48</td><td>-</td></tr>
+        </tbody>
+      </table>
+      <p class="qb-aw-note">순위·숫자는 화면 확인용 예시입니다. 실제 집계 방식과 시상 내용은 정해지지 않았습니다.</p>
+    </div>
+    <div class="qb-aw-sec">
+      <h3>시상 기준 (안)</h3>
+      <ul>
+        <li>집계 기간: 매달 1일 ~ 말일</li>
+        <li>점수: 리뷰 1건 = 1점, 받은 좋아요 1개 = 1점 (포토 리뷰 가산 여부 미정)</li>
+        <li>좋아요 1개당 리뷰어에게 1,000원 상품쿠폰 자동 증정 (리뷰 몰아보기와 공통)</li>
+        <li>상위 3명 소개 + 쿠폰 시상, 매달 1일 발표</li>
+      </ul>
+    </div>
+    <div class="qb-aw-sec">
+      <h3>앞으로 정할 것</h3>
+      <ul>
+        <li>어워드 페이지 위치 (자사몰 메뉴 / 이벤트 페이지)</li>
+        <li>리뷰 실적 집계 방법 (메이크샵 후기 데이터 연동)</li>
+        <li>쿠폰 자동 발급 방법</li>
+      </ul>
+    </div>
+  </div>
+
   <div class="qb-wish" id="qb-wish" hidden>
     <div class="qb-wish-list" id="qb-wish-list"></div>
+    <button class="qb-wish-rv" id="qb-wish-rv" type="button">리뷰<br>모아보기</button>
     <button class="qb-wish-go" id="qb-wish-go" type="button">찜 <span>0</span><br>모아보기</button>
   </div>
 </div>
@@ -257,12 +380,16 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
     siteBase:'https://www.pink-rocket.com',       // 쇼핑몰 주소. 메이크샵 안에 넣을 때는 '' 로 비웁니다.
     imgBase:'/shopimages/curiouswiz/',            // 상품 사진 폴더
     linkBase:'/shop/shopdetail.html?branduid=',   // 상품 상세 주소 앞부분 + 상품번호
-    dataUrl:''                                    // 상품 목록(JSON) 주소. 비어 있으면 페이지에 같이 들어 있는 목록을 씁니다.
+    dataUrl:'',                                   // 상품 목록(JSON) 주소. 비어 있으면 페이지에 같이 들어 있는 목록을 씁니다.
+    /* 로그인 여부 확인. 메이크샵에 넣을 때는 회원 변수(예: 로그인 치환코드)를 보도록 바꿉니다. 시제품에서는 화면의 테스트 체크박스를 봅니다. */
+    isLoggedIn:function(){return !!window.QB_LOGGED_IN},
+    couponWon:1000                                // 좋아요 1개당 리뷰어에게 주는 상품쿠폰 금액
   };
   /* ── 메뉴: 종류·소재·컬러·형태·모양·부위는 데이터와 함께 들어 있는 QB_TAGS 순서를 따릅니다 ── */
   var T=window.QB_TAGS||{item:[],material:[],color:[],shape:[],motif:[],spot:[],bar:[]};
   var MENU={item:T.item,material:T.material,color:T.color,shape:T.shape,motif:T.motif,spot:T.spot,bar:T.bar||[],
-    price:[['2,500원 이하',0,2500],['5,000원 이하',0,5000],['10,000원 이하',0,10000],['10,000원 이상',10000,1e9]]};
+    price:[['2,500원 이하',0,2500],['5,000원 이하',0,5000],['10,000원 이하',0,10000],['10,000원 이상',10000,1e9]],
+    review:[['5개 이상',5],['10개 이상',10],['100개 이상',100],['1,000개 이상',1000]]};
   var GROUPS=['item','material','color','shape','motif','spot','bar'];
   var WEIGHT={item:5,material:3,color:2,shape:3,motif:3,spot:3,bar:3};
   /* 넓은 화면에서 이 항목부터 다음 줄로 */
@@ -321,9 +448,28 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
     }
     return p;
   }
+  /* ── 리뷰 데이터 ──
+     실제 연결: window.QB_REVIEWS = { 상품번호: {n: 리뷰수, list:[{s:별점, t:내용, who:'김*영', d:'2026-09-12', opt:'골드', likes:3}, …]} }
+     지금은 연결 전이라 상품번호로 정해지는 예시 리뷰를 만들어 씁니다 (화면·동작 확인용). */
+  function hsh(a,b){var x=(a*2654435761+b*97+13)>>>0;x=(x^(x>>>13))>>>0;x=(x*1274126177)>>>0;x=(x^(x>>>16))>>>0;return x/4294967296}
+  var RV_TXT=['생각보다 더 예쁘고 착용감이 편해요. 재구매 의사 있습니다!','사진이랑 똑같아요. 알러지 없이 잘 쓰고 있어요.','배송도 빠르고 포장도 꼼꼼했어요. 선물용으로도 좋을 듯요.',
+    '작고 귀여워서 데일리로 딱이에요. 색도 안 변해요.','가격 대비 퀄리티 최고. 친구한테도 추천했어요.','두 번째 구매예요. 역시 만족!','바 길이 고를 수 있어서 좋았어요. 귀에 딱 맞아요.',
+    '반짝임이 과하지 않아서 회사 갈 때도 부담 없어요.','착용 사진 그대로예요. 이 가격에 이 정도면 대만족.','살짝 작은 느낌이었지만 끼니까 예뻐요.','무난하게 잘 쓰고 있어요.','색상이 생각보다 진해요. 그래도 예쁩니다.'];
+  var RV_WHO=['김*영','이*진','박*우','최*린','정*아','한*솔','윤*서','장*희','오*민','서*현'];
+  function sampleReviews(id){
+    var h=hsh(id,1),n=h<0.4?Math.floor(hsh(id,2)*5):h<0.7?5+Math.floor(hsh(id,2)*5):h<0.9?10+Math.floor(hsh(id,2)*90):h<0.98?100+Math.floor(hsh(id,2)*900):1000+Math.floor(hsh(id,2)*800);
+    var list=[],k;
+    for(k=0;k<Math.min(n,6);k++){
+      var r=hsh(id,10+k),m=Math.floor(hsh(id,20+k)*1000);
+      list.push({s:r<0.6?5:r<0.9?4:3,t:RV_TXT[Math.floor(hsh(id,30+k)*RV_TXT.length)],who:RV_WHO[Math.floor(hsh(id,40+k)*RV_WHO.length)],
+        d:'2026-'+('0'+(1+Math.floor(hsh(id,50+k)*10))).slice(-2)+'-'+('0'+(1+Math.floor(hsh(id,60+k)*28))).slice(-2),likes:Math.floor(hsh(id,70+k)*40)});
+    }
+    return {n:n,list:list};
+  }
+  function reviewsOf(id){var R=window.QB_REVIEWS;if(R&&R[id])return R[id];return sampleReviews(+id)}
   function unpack(r,i){
     return tone({id:r[0],name:r[1],dname:shortName(r[1]),price:r[2],listPrice:r[3],image:r[4]?CONFIG.siteBase+CONFIG.imgBase+r[4]:'',
-      colors:(r[5]||[]).map(function(c){return '#'+c}),
+      colors:(r[5]||[]).map(function(c){return '#'+c}),reviews:(r[13]!=null?r[13]:reviewsOf(r[0]).n),
       tags:{item:r[6]|0,material:r[7]|0,color:r[8]|0,shape:r[9]|0,motif:r[10]|0,spot:r[11]|0,bar:r[12]|0},
       j:((i*2654435761)>>>0)/4294967296},i);
   }
@@ -331,7 +477,7 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
   var root=document.getElementById('qb');if(!root)return;
   var $=function(id){return document.getElementById('qb-'+id)};
   var all=[],items=[],photo=null;
-  var sel={item:0,material:0,color:0,shape:0,motif:0,spot:0,bar:0,price:{}};
+  var sel={item:0,material:0,color:0,shape:0,motif:0,spot:0,bar:0,price:{},review:{}};
   function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
   var won=function(n){return n.toLocaleString('ko-KR')+'원'};
 
@@ -339,7 +485,7 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
   root.querySelectorAll('[data-qb-group]').forEach(function(box){
     var key=box.getAttribute('data-qb-group'),first=box.firstChild;
     MENU[key].forEach(function(v,idx){
-      var name=key==='price'?v[0]:v,d=(DESC[key]||{})[name],b=el('button','qb-chip'+(d?' has-d':''));
+      var name=(key==='price'||key==='review')?v[0]:v,d=(DESC[key]||{})[name],b=el('button','qb-chip'+(d?' has-d':''));
       if(d){b.appendChild(el('b','',name));b.appendChild(el('small','',d))}
       else if(key==='motif'&&ICON[name]){b.className+=' has-i';b.innerHTML='<svg class="qb-ico" viewBox="0 0 16 16" aria-hidden="true">'+ICON[name]+'</svg>';b.appendChild(document.createTextNode(name))}
       else b.textContent=name;
@@ -347,7 +493,7 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
       b.type='button';b.setAttribute('aria-pressed','false');
       b.addEventListener('click',function(){
         var on;
-        if(key==='price'){on=!sel.price[idx];sel.price[idx]=on}
+        if(key==='price'||key==='review'){on=!sel[key][idx];sel[key][idx]=on}
         else{sel[key]^=(1<<idx);on=!!(sel[key]&(1<<idx))}
         b.setAttribute('aria-pressed',String(on));reRank();
       });
@@ -398,12 +544,18 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
     if(lo!=null||hi!=null){any=true;if(p>=(lo||0)&&p<=(hi==null?1e12:hi))ok=true}
     return any?(ok?1:0):-1;
   }
+  function reviewOk(p){
+    var any=false,min=1e9,k;
+    for(k in sel.review){if(sel.review[k]){any=true;min=Math.min(min,MENU.review[k][1])}}
+    return any?(p.reviews>=min?1:0):-1;
+  }
   function recommend(n){
     var kw=$('kw').value.trim();
     var scored=all.map(function(p){
       var s=p.j*0.9;
       GROUPS.forEach(function(g){if(sel[g]&&(p.tags[g]&sel[g]))s+=WEIGHT[g]});
       if(p.price&&priceOk(p.price)===1)s+=4;
+      if(reviewOk(p)===1)s+=4;
       if(kw&&p.name.indexOf(kw)>=0)s+=6;
       if(photo){
         if(photo.grey){if(p.grey)s+=4}
@@ -419,6 +571,7 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
     if(photo){var im=new Image();im.src=photo.src;im.alt='넣은 사진';box.appendChild(im)}
     GROUPS.forEach(function(g){MENU[g].forEach(function(nm,i){if(sel[g]&(1<<i))t.push(nm)})});
     MENU.price.forEach(function(r,i){if(sel.price[i])t.push(r[0])});
+    MENU.review.forEach(function(r,i){if(sel.review[i])t.push('리뷰 '+r[0])});
     var lo=num('pmin'),hi=num('pmax');if(lo!=null||hi!=null)t.push((lo!=null?won(lo):'')+' ~ '+(hi!=null?won(hi):''));
     var kw=$('kw').value.trim();if(kw)t.push('"'+kw+'"');
     if(!t.length&&!photo)t.push('선택 없음 · 전체에서 추천');
@@ -465,6 +618,7 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
     var op=el('div','qb-opts'),dots=el('span','qb-dots');
     p.colors.slice(0,8).forEach(function(c){var d=el('span');d.style.background=c;dots.appendChild(d)});
     op.appendChild(dots);if(p.colors.length)op.appendChild(el('span','','색상 '+p.colors.length+'종'));
+    if(p.reviews)op.appendChild(el('span','',' · 리뷰 '+p.reviews.toLocaleString('ko-KR')));
     info.appendChild(nm);info.appendChild(pr);info.appendChild(op);
     a.appendChild(ph);a.appendChild(info);
     return a;
@@ -511,10 +665,10 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
   }
   /* 추천을 받은 뒤에는 선택을 바꾸면 결과가 바로 다시 정렬됩니다 (스크롤 위치는 그대로) */
   var reTimer=0;
-  function reRank(){if(lastN<0||!all.length||wishMode)return;clearTimeout(reTimer);reTimer=setTimeout(function(){show(lastN,true)},150)}
+  function reRank(){if(lastN<0||!all.length||wishMode||page)return;clearTimeout(reTimer);reTimer=setTimeout(function(){show(lastN,true)},150)}
   $('kw').addEventListener('input',reRank);
   $('reset').addEventListener('click',function(){
-    GROUPS.forEach(function(g){sel[g]=0});sel.price={};
+    GROUPS.forEach(function(g){sel[g]=0});sel.price={};sel.review={};
     root.querySelectorAll('.qb-chip').forEach(function(c){c.setAttribute('aria-pressed','false')});
     $('kw').value='';$('pmin').value='';$('pmax').value='';clearPhoto();reRank();
   });
@@ -530,6 +684,8 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
     saveWish();renderWish();
   }
   function updateGo(){
+    var rb=$('wish-rv');
+    if(page==='rv'){rb.textContent='← 돌아가기'}else{rb.innerHTML='리뷰<br>모아보기'}
     var b=$('wish-go');
     if(wishMode){b.textContent='← 돌아가기';b.setAttribute('aria-label','찜 모아보기 끝내고 보던 곳으로 돌아가기')}
     else{b.innerHTML='찜 <span>'+wish.length+'</span><br>모아보기';b.setAttribute('aria-label','찜한 상품 '+wish.length+'개 모아보기')}
@@ -545,11 +701,90 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
       m.appendChild(x);box.appendChild(m);
     });
     updateGo();
-    if(wishMode&&!wish.length)exitWish();
     $('wish').hidden=!wish.length;
     root.style.setProperty('--qb-wish-h',wish.length?$('wish').offsetHeight+'px':'0px');
     root.querySelectorAll('.qb-heart').forEach(function(h){h.setAttribute('aria-pressed',String(isWished(h.getAttribute('data-id'))))});
+    if(page==='rv'){renderRv();return}
+    if(wishMode&&!wish.length)exitWish();
     if(wishMode&&wish.length)showWish(true);
+  }
+
+  /* ── 별도 페이지(리뷰 모아보기 · 리뷰어 어워드): 들어가기 전 화면을 기억했다가 돌아가기로 그대로 복원 ── */
+  var page='',pageSaved=null;
+  function openPage(id){
+    if(!page)pageSaved={wishMode:wishMode,items:items,title:$('title').innerHTML,note:$('note').textContent,y:window.pageYOffset,resHidden:$('res').hidden};
+    page=id;$('rv').hidden=id!=='rv';$('aw').hidden=id!=='aw';$('res').hidden=true;
+    if(id==='rv')renderRv();
+    updateGo();
+    window.scrollTo(0,$(id).getBoundingClientRect().top+window.pageYOffset);
+  }
+  function closePage(){
+    if(!page)return;
+    var st=pageSaved;page='';pageSaved=null;$('rv').hidden=true;$('aw').hidden=true;
+    if(st&&!st.resHidden){
+      wishMode=st.wishMode;items=st.items;$('title').innerHTML=st.title;$('note').textContent=st.note;
+      $('back').textContent=wishMode?'← 돌아가기':'취향 바꾸기 ↑';if(!wishMode)summary();
+      $('res').hidden=false;layout();
+    }
+    updateGo();window.scrollTo(0,st?st.y:0);if(!$('res').hidden)draw();
+  }
+  $('rv-back').addEventListener('click',closePage);
+  $('aw-back').addEventListener('click',closePage);
+  $('award-btn').addEventListener('click',function(){if(page==='aw'){closePage();return}if(page)closePage();openPage('aw')});
+  $('wish-rv').addEventListener('click',function(){if(page==='rv'){closePage();return}if(page)closePage();ensure(function(){openPage('rv')})});
+  $('login-demo').addEventListener('change',function(){window.QB_LOGGED_IN=this.checked});
+
+  /* ── 리뷰 모아보기: 찜한 순서대로, 상품마다 좋은 후기 3개 ── */
+  var likes={};
+  try{likes=JSON.parse(localStorage.getItem('qb-likes')||'{}')||{}}catch(e){likes={}}
+  function saveLikes(){try{localStorage.setItem('qb-likes',JSON.stringify(likes))}catch(e){}}
+  var toastT=0;
+  function toast(html){
+    var t=root.querySelector('.qb-toast');if(!t){t=el('div','qb-toast');t.setAttribute('role','status');root.appendChild(t)}
+    t.innerHTML=html;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){t.hidden=true},3200);
+  }
+  function catOf(p){var c=[];['item','material','shape'].forEach(function(g){MENU[g].forEach(function(nm,i){if(p.tags[g]&(1<<i))c.push(nm)})});return c.join(' · ')}
+  function renderRv(){
+    var box=$('rv-list');box.textContent='';
+    if(!wish.length){box.appendChild(el('p','qb-empty','찜한 상품이 없습니다. 하트를 눌러 찜하면 후기를 모아 보여드립니다.'));return}
+    var map={};all.forEach(function(p){map[p.id]=p});
+    wish.forEach(function(w){
+      var p=map[w.id]||{id:w.id,name:w.name,dname:w.name,price:w.price,image:w.image,tags:{item:0,material:0,shape:0},reviews:0};
+      var blk=el('div','qb-rvi'),top=el('div','qb-rvi-top');
+      if(p.image){var im=new Image();im.alt='';im.src=p.image;top.appendChild(im)}else top.appendChild(el('span','ph'));
+      top.appendChild(el('div','qb-rvi-price',p.price?won(p.price):'가격 문의'));
+      var nm=el('div','qb-rvi-name'),a=el('a','',p.name);link(a,p.id);nm.appendChild(a);
+      var cat=catOf(p);nm.appendChild(el('small','',(cat||'분류 없음')+(p.reviews?' · 리뷰 '+p.reviews.toLocaleString('ko-KR')+'개':'')));
+      top.appendChild(nm);
+      var del=el('button','qb-rvi-del','찜 제외하기');del.type='button';
+      del.addEventListener('click',function(){wish=wish.filter(function(v){return String(v.id)!==String(p.id)});saveWish();renderWish()});
+      top.appendChild(del);blk.appendChild(top);
+      var R=reviewsOf(p.id),list=(R.list||[]).slice().sort(function(x,y){return (y.s-x.s)||((y.likes||0)-(x.likes||0))}).slice(0,3);
+      if(!list.length)blk.appendChild(el('p','qb-norev','아직 등록된 후기가 없습니다.'));
+      else{
+        var rs=el('div','qb-revs');
+        list.forEach(function(r,i){
+          var key=p.id+'-'+i,card=el('div','qb-rev');
+          card.appendChild(el('span','qb-rev-no',(i+1)+'번 리뷰'));
+          card.appendChild(el('span','qb-rev-stars','★★★★★'.slice(0,r.s)+'☆☆☆☆☆'.slice(0,5-r.s)));
+          card.appendChild(el('p','qb-rev-txt',r.t));
+          card.appendChild(el('span','qb-rev-meta',(r.who||'구매고객')+' · '+(r.d||'')+(r.opt?' · '+r.opt:'')));
+          var lk=el('button','qb-like');lk.type='button';lk.setAttribute('aria-pressed',String(!!likes[key]));
+          var cnt=(r.likes||0)+(likes[key]?1:0);
+          lk.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v11H3V10zM7 10l4-7c1.7 0 3 1.3 3 3v4h5.3a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"/></svg>도움돼요 <b>'+cnt+'</b>';
+          lk.addEventListener('click',function(){
+            if(!CONFIG.isLoggedIn()){toast('<b>로그인</b> 후 좋아요를 누를 수 있어요.<br>좋아요 1개당 리뷰어에게 '+CONFIG.couponWon.toLocaleString('ko-KR')+'원 상품쿠폰이 증정됩니다.');return}
+            if(likes[key])delete likes[key];else likes[key]=1;saveLikes();
+            var c=(r.likes||0)+(likes[key]?1:0);lk.setAttribute('aria-pressed',String(!!likes[key]));lk.querySelector('b').textContent=c;
+            if(likes[key])toast('도움돼요를 눌렀어요. 리뷰어에게 <b>'+CONFIG.couponWon.toLocaleString('ko-KR')+'원 상품쿠폰</b>이 증정됩니다.');
+          });
+          card.appendChild(lk);rs.appendChild(card);
+        });
+        blk.appendChild(rs);
+      }
+      box.appendChild(blk);
+    });
+    if(!window.QB_REVIEWS)box.appendChild(el('p','qb-aw-note','※ 지금 보이는 후기·별점·좋아요 숫자는 화면 확인용 예시입니다. 실제 후기 연결 후 교체됩니다.'));
   }
   /* 모아보기 들어가기 직전 상태(보던 목록·제목·스크롤 위치)를 기억했다가 그대로 돌려놓습니다 */
   var saved=null;
@@ -576,16 +811,19 @@ window.QB_PRODUCTS=[[16,"(상품명 없음)",0,0,"0310070005853.jpg",["e7e7e7","
     var label=btn&&btn.textContent;if(btn)btn.textContent='불러오는 중';
     loadProducts(function(rows){all=rows;if(btn)btn.textContent=label;cb()},function(){if(btn)btn.textContent='불러오지 못했습니다'});
   }
-  $('wish-go').addEventListener('click',function(){if(wishMode){exitWish();return}ensure(function(){showWish()})});
+  $('wish-go').addEventListener('click',function(){
+    if(page){var wasWish=pageSaved&&pageSaved.wishMode;closePage();if(wasWish)return}
+    if(wishMode){exitWish();return}ensure(function(){showWish()})});
   root.querySelectorAll('[data-qb-n]').forEach(function(b){
     b.addEventListener('click',function(){var n=+b.getAttribute('data-qb-n');ensure(function(){show(n)},b)});
   });
   $('back').addEventListener('click',function(){if(wishMode){exitWish()}else{toTop()}});
+  var pageSizeFix=function(){if(wish.length)root.style.setProperty('--qb-wish-h',$('wish').offsetHeight+'px')};
   $('size').addEventListener('change',layout);
   $('top').addEventListener('click',toTop);
   window.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(draw)},{passive:true});
   window.addEventListener('resize',function(){if(!$('res').hidden)layout();if(wish.length)root.style.setProperty('--qb-wish-h',$('wish').offsetHeight+'px')});
-  renderWish();
+  renderWish();pageSizeFix();
 })();
 </script>
 
